@@ -27,6 +27,7 @@ stage('Build Tar File') {
             steps {
                 // Archive the tar file as an artifact
                 archiveArtifacts artifacts: 'laravel-project.tar.gz', allowEmptyArchive: true
+                //saddam
             }
         }
         
