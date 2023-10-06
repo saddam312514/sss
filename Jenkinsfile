@@ -17,15 +17,16 @@ pipeline {
         //     }
         // }
 
-      stage('Archive as ZIP') {
+stage('Build Tar File') {
             steps {
-                // Change to the directory containing the folder you want to archive
-                dir('/var/lib/jenkins/workspace/saddam-ch') {
-                    // Create a ZIP archive of the folder
-                    sh 'zip -r archive.zip .'
-                }
-                // Archive the ZIP file as a Jenkins artifact
-                archiveArtifacts artifacts: 'archive.zip', allowEmptyArchive: true
+                // Create a tar file from your Laravel project files (replace with your tar command)
+                sh 'tar -czf laravel-project.tar.gz *'
+            }
+        }
+        stage('Archive Tar File') {
+            steps {
+                // Archive the tar file as an artifact
+                archiveArtifacts artifacts: 'laravel-project.tar.gz', allowEmptyArchive: true
             }
         }
         
